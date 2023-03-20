@@ -44,7 +44,8 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		gap:1rem;
 	}
-	#productGrid li{
+	:global(#productGrid li){
+		padding: 1rem;
 		border: 1px solid brown;
 	}
 	
