@@ -26,9 +26,9 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
-		margin: auto;
+		margin-inline: auto;
 		padding: 1.5rem;
-		max-width: 60ch;
+		max-width: 1000px;
 	}
 	h1 {
 		font-size: 3rem;
@@ -43,6 +43,9 @@ import Layout from '../layouts/Layout.astro';
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		gap:1rem;
+	}
+	#productGrid li{
+		border: 1px solid brown;
 	}
 	
 </style>
