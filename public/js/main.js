@@ -14,9 +14,9 @@ function hentData(){fetch(url, {
 }
 function showData(items){
     console.table(items)
-    document.querySelector("ul").innerHTML ="";
+    document.querySelector("#productGrid").innerHTML ="";
     items.forEach(e => {
-        document.querySelector("ul").innerHTML += "<article><p>"+e.name+"</p><p> pris: "+e.price+" kr</p></article>"
+        document.querySelector("#productGrid").innerHTML += "<li><article><h3>"+e.name+"</h3><p> pris: "+e.price+" kr</p></article></li>"
         
     });
 }

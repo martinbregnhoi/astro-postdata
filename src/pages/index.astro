@@ -17,9 +17,9 @@ import Layout from '../layouts/Layout.astro';
         </p>
     <button>Send</button>
     </form>
-    <section>
+    <ul id="productGrid">
 
-	</section>
+	</ul>
     <script src="/js/main.js" "is:inline"></script>
 	</main>
 </Layout>
@@ -39,4 +39,10 @@ import Layout from '../layouts/Layout.astro';
 		list-style-type: none;
 		color:brown;
 	}
+    #productGrid{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap:1rem;
+	}
+	
 </style>
