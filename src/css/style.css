@@ -1,0 +1,27 @@
+main {
+    margin-inline: auto;
+    padding: 1.5rem;
+    max-width: 1000px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    color: brown;
+}
+
+#productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+#productGrid li {
+    padding: 1rem;
+    border: 1px solid brown;
+}
