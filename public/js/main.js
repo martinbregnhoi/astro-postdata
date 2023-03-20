@@ -16,7 +16,7 @@ function showData(items){
     console.table(items)
     document.querySelector("ul").innerHTML ="";
     items.forEach(e => {
-        document.querySelector("ul").innerHTML += "<li>"+e.name+" pris: "+e.price+" kr</li>"
+        document.querySelector("ul").innerHTML += "<article><p>"+e.name+"</p><p> pris: "+e.price+" kr</p></article>"
         
     });
 }
