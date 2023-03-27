@@ -1,27 +1,36 @@
 ---
 import "../css/style.css";
 import Layout from '../layouts/Layout.astro';
-//import Card from '../components/Card.astro';
+import Card from '../components/Card.astro';
+import Form from '../components/Form.astro';
+const url = "https://dvmptwdziademulaatzd.supabase.co/rest/v1/test_products"
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2bXB0d2R6aWFkZW11bGFhdHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg2OTc1MTMsImV4cCI6MTk5NDI3MzUxM30.89WAyrAnFikazYnvmF6-hyrpZt58wAyRMAw78SeHOhk";
+
+const response = await fetch(url,{
+    method:"GET",
+    headers: {
+        apikey: key,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+       
+    },
+});
+const produkter = await response.json();
 ---
 
 <Layout title="Post data from Astro">
 	<main>
-		<form id="myForm">
-        <p><label for="name">Name
-            <input type="text" name="name" required>
-            </label>
-        </p>
-    
-        <p><label for="price">price
-            <input type="number" name="price" required>
-            </label>
-        </p>
-    <button>Send</button>
-    </form>
+		<Form />
     <ul id="productGrid">
+        {
+        produkter.map((produkt) => {
+return <Card name = {produkt.name} price = {produkt.price}/>
+        })
+        }
 
 	</ul>
-    <script src="/js/main.js" "is:inline"></script>
+    <!-- <script src="/js/main.js" "is:inline"></script>-->
 	</main>
+   
 </Layout>
 

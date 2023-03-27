@@ -1,28 +1,29 @@
 ---
-export interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
+//export interface Props {
+//	title: string;
+//	body: string;
+//	href: string;
+//}
 
-const { href, title, body } = Astro.props;
+const { name, price } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
+	
 		<h2>
-			{title}
-			<span>&rarr;</span>
+			{name}
+			
 		</h2>
 		<p>
-			{body}
+			{price} kr.
 		</p>
-	</a>
+	
 </li>
 <style>
 	.link-card {
 		list-style: none;
-		display: flex;
+		/* display: flex; 
+		flex-direction: row;*/
 		padding: 0.25rem;
 		background-color: white;
 		background-image: none;
@@ -57,7 +58,7 @@ const { href, title, body } = Astro.props;
 		background-position: 0;
 		background-image: var(--accent-gradient);
 	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
+	.link-card:is(:hover, :focus-within) h2,.link-card:is(:hover, :focus-within) p  {
+		color: rgb(var(--contrast));
 	}
 </style>
