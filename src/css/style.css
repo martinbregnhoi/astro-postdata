@@ -20,7 +20,11 @@ ul {
     list-style-type: none;
     color: brown;
 }
-
+.topgrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1rem;
+}
 #productGrid {
     margin-top: 1rem;
     display: grid;

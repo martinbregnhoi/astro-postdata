@@ -2,15 +2,17 @@
 
 ---
 <form id="myForm">
-        <p><label for="name">Name:
+        <div class="formfield">
+            <label for="name">Name:</label>
             <input type="text" name="name" required>
-            </label>
-        </p>
+            
+        </div>
     
-        <p><label for="price">Price:
+        <div class="formfield">
+            <label for="price">Price:</label>
             <input type="number" name="price" required>
-            </label>
-        </p>
+            
+        </div>
     <button>Send</button>
     </form>
      <script>
@@ -42,19 +44,35 @@ console.log("test");
 }
     </script>
 <style>
-    form{
+
+form{
+    box-sizing: border-box;
+        display: grid;
         border: 1px solid #456;
         border-radius: 0.6rem;
         padding: 20px;
+    
+        
+    }
+    .formfield{
+        display: grid;
+        gap:0.3rem;
     }
     form button{
+        font:inherit;
         border-radius: 0;
         padding: 0.5rem;
+        width: 25%;
+
     }
-    p{
+    div{
         margin: 10px 0;
     }
     input{
-        margin-left: 1rem;
+       font:inherit;
+       font-size: max(16px, 1em);
+       border:1px solid #333;
+       line-height: 2rem;
+       padding-left:.5rem; 
     }
 </style>
