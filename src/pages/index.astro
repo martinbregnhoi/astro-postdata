@@ -26,7 +26,7 @@ const produkter = await response.json();
     <ul id="productGrid">
         {
         produkter.map((produkt) => {
-return <Card name = {produkt.name} price = {produkt.price}/>
+return <Card name = {produkt.name} price = {produkt.price} link={"/sko/" + produkt.name}/>
         })
         }
 

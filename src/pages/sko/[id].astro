@@ -1,0 +1,45 @@
+---
+import "../../css/style.css";
+import Layout from '../../layouts/Layout.astro';
+export async function getStaticPaths() {
+  const url = "https://dvmptwdziademulaatzd.supabase.co/rest/v1/test_products?in_stock=is.true";
+  const options = {
+    headers: {
+      apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2bXB0d2R6aWFkZW11bGFhdHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg2OTc1MTMsImV4cCI6MTk5NDI3MzUxM30.89WAyrAnFikazYnvmF6-hyrpZt58wAyRMAw78SeHOhk"
+       ,
+    },
+  };
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data.map((produkt) => ({
+    params: { id: produkt.name },
+    props: { produkt },
+  }));
+}
+
+const { produkt } = Astro.props;
+---
+<Layout title="Sko">
+    <main>
+<h2>
+			{produkt.name}
+			
+		</h2>
+		<p>
+			{produkt.price} kr.
+		</p>
+</main>
+</Layout>
+<style>
+   	h2 {
+		margin: 0;
+		font-size: 2rem;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+		color: #444;
+	} 
+</style>

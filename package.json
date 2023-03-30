@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@lottiefiles/lottie-interactivity": "^1.6.2",
+    "@lottiefiles/lottie-player": "^1.7.1",
     "astro": "^2.0.18"
   }
 }

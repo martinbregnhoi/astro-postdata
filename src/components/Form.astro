@@ -1,5 +1,5 @@
 ---
-
+import FirstAnim from "./FirstAnim.astro";
 ---
 <form id="myForm">
         <div class="formfield">
@@ -13,7 +13,11 @@
             <input type="number" name="price" required>
             
         </div>
-    <button>Send</button>
+        <div class="formfield">
+             <label for="in_stock">På lager</label>
+            <input type="checkbox" name="in_stock" value="true">
+        </div>
+    <button><FirstAnim /></button>
     </form>
      <script>
         const url = "https://dvmptwdziademulaatzd.supabase.co/rest/v1/test_products"
@@ -23,12 +27,13 @@ const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 form.addEventListener("submit", submitform);
 
 function submitform(event){
-    event.preventDefault();//forhindrer refresh
+   event.preventDefault();//forhindrer refresh
     const formData = form.elements;
     let name = formData.name.value;
     let price = formData.price.value;
+    let in_stock = formData.in_stock.value;
     //saml evt data i const
-    //document.querySelector("#myForm").reset();
+    document.querySelector("#myForm").reset();
 fetch(url, {
     method:"POST",
     headers: {
@@ -37,7 +42,7 @@ fetch(url, {
         'Content-Type': 'application/json'
        
     },
-    body:JSON.stringify({ name, price }),
+    body:JSON.stringify({ name, price, in_stock }),
 })
 console.log("test");
 
@@ -63,7 +68,9 @@ form{
         border-radius: 0;
         padding: 0.5rem;
         width: 25%;
-
+border:none;
+background:none;
+cursor:pointer;
     }
     div{
         margin: 10px 0;
