@@ -27,13 +27,12 @@ const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 form.addEventListener("submit", submitform);
 
 function submitform(event){
-   event.preventDefault();//forhindrer refresh
+   event.preventDefault();//forhindrer standard opførsel for en form - refresh
     const formData = form.elements;
     let name = formData.name.value;
     let price = formData.price.value;
     let in_stock = formData.in_stock.value;
-    //saml evt data i const
-    document.querySelector("#myForm").reset();
+    document.querySelector("#myForm").reset();//resetter formfelter
 fetch(url, {
     method:"POST",
     headers: {
