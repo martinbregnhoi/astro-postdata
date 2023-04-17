@@ -16,6 +16,8 @@ const response = await fetch(url,{
     },
 });
 const produkter = await response.json();
+//console.log(produkter);
+	
 ---
 
 <Layout title="Post data from Astro">
@@ -31,7 +33,7 @@ return <Card name = {produkt.name} price = {produkt.price} link={"/sko/" + produ
         }
 
 	</ul>
-    <!-- <script src="/js/main.js" "is:inline"></script>-->
+   
 	</main>
    
 </Layout>
