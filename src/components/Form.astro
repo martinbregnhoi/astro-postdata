@@ -1,85 +1,87 @@
 ---
 import FirstAnim from "./FirstAnim.astro";
+import Knap from "./Knap.astro";
 ---
+
 <form id="myForm">
-        <div class="formfield">
-            <label for="name">Name:</label>
-            <input type="text" name="name" required>
-            
-        </div>
-    
-        <div class="formfield">
-            <label for="price">Price:</label>
-            <input type="number" name="price" required>
-            
-        </div>
-        <div class="formfield">
-             <label for="in_stock">På lager:</label>
-            <input type="checkbox" name="in_stock" value="true">
-            
-        </div>
-    <button><FirstAnim /></button>
-    </form>
-     <script>
-        const url = "https://dvmptwdziademulaatzd.supabase.co/rest/v1/test_products"
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2bXB0d2R6aWFkZW11bGFhdHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg2OTc1MTMsImV4cCI6MTk5NDI3MzUxM30.89WAyrAnFikazYnvmF6-hyrpZt58wAyRMAw78SeHOhk";
+  <div class="formfield">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required />
+  </div>
 
-        const form = document.querySelector("#myForm");
-form.addEventListener("submit", submitform);
+  <div class="formfield">
+    <label for="price">Price:</label>
+    <input type="number" name="price" required />
+  </div>
+  <div class="formfield">
+    <label for="in_stock">På lager:</label>
+    <input type="checkbox" name="in_stock" value="true" />
+  </div>
+  <button><FirstAnim /></button>
+  <Knap />
+</form>
+<script>
+  const url = "https://dvmptwdziademulaatzd.supabase.co/rest/v1/test_products";
+  const key =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2bXB0d2R6aWFkZW11bGFhdHpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg2OTc1MTMsImV4cCI6MTk5NDI3MzUxM30.89WAyrAnFikazYnvmF6-hyrpZt58wAyRMAw78SeHOhk";
 
-function submitform(event){
-   event.preventDefault();//forhindrer standard opførsel for en form - refresh
+  const form = document.querySelector("#myForm");
+  document.querySelector("#knap").addEventListener("click", reload);
+  form.addEventListener("submit", submitform);
+
+  function reload() {
+    setTimeout(function () {
+      window.location.reload();
+    }, 3000);
+  }
+  function submitform(event) {
+    event.preventDefault(); //forhindrer standard opførsel for en form - refresh
     const formData = form.elements;
     let name = formData.name.value;
     let price = formData.price.value;
     let in_stock = formData.in_stock.value;
-    document.querySelector("#myForm").reset();//resetter formfelter
-fetch(url, {
-    method:"POST",
-    headers: {
+    //document.querySelector("#myForm").reset(); //resetter formfelter
+    fetch(url, {
+      method: "POST",
+      headers: {
         apikey: key,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-       
-    },
-    body:JSON.stringify({ name, price, in_stock }),
-})
-console.log("test");
-
-}
-    </script>
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, price, in_stock }),
+    });
+    console.log("test");
+  }
+</script>
 <style>
-
-form{
+  form {
     box-sizing: border-box;
-        display: grid;
-        border: 1px solid #456;
-        border-radius: 0.6rem;
-        padding: 20px;
-    
-        
-    }
-    .formfield{
-        display: grid;
-        gap:0.3rem;
-    }
-    form button{
-        font:inherit;
-        border-radius: 0;
-        padding: 0.5rem;
-        width: 25%;
-border:none;
-background:none;
-cursor:pointer;
-    }
-    div{
-        margin: 10px 0;
-    }
-    input{
-       font:inherit;
-       font-size: max(16px, 1em);
-       border:1px solid #333;
-       line-height: 2rem;
-       padding-left:.5rem; 
-    }
+    display: grid;
+    border: 1px solid #456;
+    border-radius: 0.6rem;
+    padding: 20px;
+  }
+  .formfield {
+    display: grid;
+    gap: 0.3rem;
+  }
+  form button {
+    font: inherit;
+    border-radius: 0;
+    padding: 0.5rem;
+    width: 25%;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  div {
+    margin: 10px 0;
+  }
+  input {
+    font: inherit;
+    font-size: max(16px, 1em);
+    border: 1px solid #333;
+    line-height: 2rem;
+    padding-left: 0.5rem;
+  }
 </style>

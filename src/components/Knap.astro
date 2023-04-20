@@ -1,20 +1,30 @@
 ---
-
 ---
-<lottie-player id="knap" src="/Knap.json" background="transparent" style="width: 100px; height: 100px;" ></lottie-player>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
-<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js" is:inline></script>
+
+<lottie-player
+  id="knap"
+  src="/refresh.json"
+  background="transparent"
+  style="width: 50px; height: 50px;"></lottie-player>
+<script
+  src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+  is:inline
+></script>
+<script
+  src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"
+  is:inline
+></script>
 
 <script>
-    LottieInteractivity.create({
-                        player: '#knap',
-                        mode: "cursor",
-                    actions: [
-                        {
-                            visibility: [0, 1.0],
-                            type: "toggle",
-                            forceFlag: false
-                        }
-                    ]
-                    }); 
+  LottieInteractivity.create({
+    player: "#knap",
+    mode: "cursor",
+    actions: [
+      {
+        visibility: [0, 1.0],
+        type: "toggle",
+        forceFlag: false,
+      },
+    ],
+  });
 </script>

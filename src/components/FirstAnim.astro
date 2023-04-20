@@ -1,31 +1,45 @@
 ---
-
 ---
-<lottie-player id="secondLottie" src="/knapanimation.json" background="transparent" style="width: 200px; height: 200px;" ></lottie-player>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
-<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js" is:inline></script>
+
+<lottie-player
+  id="secondLottie"
+  src="/knapanimation.json"
+  background="transparent"
+  style="width: 400px; height: 150px;"></lottie-player>
+<script
+  src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+  is:inline
+></script>
+<script
+  src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"
+  is:inline
+></script>
 <!--<script>
 import "@lottiefiles/lottie-player"  
 import "@lottiefiles/lottie-interactivity";
 </script>-->
 <script>
-    
-    LottieInteractivity.create({
-                        player: '#secondLottie',
-                        mode: "chain",
-                    actions: [
-                         {
-            state: 'loop',
-            transition: 'click',
-            frames: 'start'
-        },
-        {
-            state: 'autoplay',
-            transition: 'onComplete',
-            frames: 'end',
-            reset: true
-        }
-                    ]
-                    }); 
-                    
+  LottieInteractivity.create({
+    player: "#secondLottie",
+    mode: "chain",
+    actions: [
+      {
+        state: "loop",
+        transition: "click",
+        frames: "start",
+      },
+      {
+        state: "autoplay",
+        transition: "onComplete",
+        frames: "end",
+       // reset: true,
+      },
+      {
+        path: "/refresh.json",
+        state: "autoplay",
+        reset: true,
+        transition: "onComplete",
+      },
+    ],
+  });
 </script>
